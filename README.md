@@ -1,1 +1,83 @@
-ngx-in-view
+# ngx-in-view
+
+<!--[![Build Status](https://travis-ci.org/ng-lightning/ng-lightning.svg?branch=master)](https://travis-ci.org/ng-lightning/ng-lightning)
+[![npm version](https://badge.fury.io/js/ng-lightning.svg)](https://www.npmjs.com/package/ng-lightning)
+[![npm](https://img.shields.io/npm/dm/ng-lightning.svg?maxAge=2592000)](https://www.npmjs.com/package/ng-lightning)-->
+
+Angular 2+ wrapper for [in-view.js](https://github.com/camwiegert/in-view)
+
+## Installation
+
+Install through `npm`:
+
+```bash
+npm install --save ngx-in-view
+```
+
+## Usage
+Once installed you need to import our main module into your application module by calling InViewModule.forRoot(). You should end up with code similar to this:
+
+```javascript
+import {AppComponent} from '...';
+import {InViewModule} from 'ngx-in-view/ngx-in-view';
+
+@NgModule({
+  imports: [..., InViewModule.forRoot()],
+  declarations: [AppComponent, ...],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+```
+
+## API
+
+### Input
+
+* enter?: Function: Register a handler to the element for 'enter' events.
+* exit?: Function: Register a handler to the element for 'exit' events.
+* enterOnce?: Function: Register a handler to the element for 'enter' events. It will only be called once.
+* exitOnce?: Function: Register a handler to the element for 'exit' events. It will only be called once.
+
+### Export (inView)
+* is(): Check if element is in the viewport.
+
+
+## Configuration
+
+Optionally, you can pass an object to the forRoot method, to configure ngx-in-view during the initialization of the application, in order to provide your own default values. For example:
+
+```javascript
+@NgModule({
+  imports: [
+    ...,
+    InViewModule.forRoot({
+      threshold: 1, // Override this specific property
+      ...
+    })
+  ],
+})
+export class AppModule {}
+```
+
+Currently available options can be found [here](https://github.com/ihym/ngx-in-view/blob/master/src/config/config.interface.ts).
+
+If you want to change some config properties during runtime, you can easily achieve it by utilizing the update method like this:
+
+```javascript
+import {InViewConfig} from 'ngx-in-view/ngx-in-view';
+
+export class AppComponent {
+
+  constructor(private config: InViewConfig) {}
+
+  changeConfig() {
+    this.config.update({
+      threshold: 0.5,
+      ...,
+    });
+  }
+}
+```
+
+***
+MIT @ [Vasilis Diakomanolis](https://github.com/ihym)
