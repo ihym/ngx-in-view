@@ -69,7 +69,7 @@ function runVersion( version ) {
 function publish(version) {
   var deferred = q.defer();
   console.log('Publishing...');
-  child_process.exec('gulp prepublish && npm publish ./node_modules/ng-lightning', function (err, stdout, stderr){
+  child_process.exec('gulp prepublish && npm publish ./node_modules/ngx-in-view', function (err, stdout, stderr){
     if (err) {
       console.log('child processes failed with error code: ', err);
       deferred.reject();
