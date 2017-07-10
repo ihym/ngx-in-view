@@ -1,0 +1,31 @@
+app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.badge {
+  opacity: 0.75;
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(rgba(0, 0, 255, 0.45), rgba(0, 0, 255, 0.45)), url(./img/angular.png);
+  background-size: contain;
+}
+
+.badge.inView {
+  background: linear-gradient(rgba(255, 0, 0, 0.45), rgba(255, 0, 0, 0.45)), url(./img/angular.png);
+  background-size: contain;
+}
+
+.slds-card {
+  position: fixed;
+  padding: 2rem;
+  z-index: 10000;
+  border-radius: 0;
+  border: 2px solid red;
+  background: #fff;
+}
