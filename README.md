@@ -1,7 +1,7 @@
 # ngx-in-view
 
+[![Build Status](https://travis-ci.org/ihym/ngx-in-view.svg?branch=master)](https://travis-ci.org/ihym/ngx-in-view)
 [![npm version](https://badge.fury.io/js/ngx-in-view.svg)](https://www.npmjs.com/package/ngx-in-view)
-[![npm](https://img.shields.io/npm/dm/ngx-in-view.svg?maxAge=2592000)](https://www.npmjs.com/package/ngx-in-view)
 
 Angular 2+ wrapper for [in-view.js](https://github.com/camwiegert/in-view)
 
