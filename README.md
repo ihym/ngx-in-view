@@ -1,10 +1,11 @@
 # ngx-in-view
 
-<!--[![Build Status](https://travis-ci.org/ng-lightning/ng-lightning.svg?branch=master)](https://travis-ci.org/ng-lightning/ng-lightning)
-[![npm version](https://badge.fury.io/js/ng-lightning.svg)](https://www.npmjs.com/package/ng-lightning)
-[![npm](https://img.shields.io/npm/dm/ng-lightning.svg?maxAge=2592000)](https://www.npmjs.com/package/ng-lightning)-->
+[![npm version](https://badge.fury.io/js/ngx-in-view.svg)](https://www.npmjs.com/package/ngx-in-view)
+[![npm](https://img.shields.io/npm/dm/ngx-in-view.svg?maxAge=2592000)](https://www.npmjs.com/package/ngx-in-view)
 
 Angular 2+ wrapper for [in-view.js](https://github.com/camwiegert/in-view)
+
+[https://ihym.github.io/ngx-in-view/](https://ihym.github.io/ngx-in-view/)
 
 ## Installation
 
