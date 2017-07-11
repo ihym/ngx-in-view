@@ -4,10 +4,10 @@
   "description": "Angular 2+ wrapper for in-view.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ngx-in-view/ngx-in-view.git"
+    "url": "git+https://github.com/ihym/ngx-in-view.git"
   },
   "bugs": {
-    "url": "https://github.com/ngx-in-view/ngx-in-view/issues"
+    "url": "https://github.com/ihym/ngx-in-view/issues"
   },
   "main": "bundles/ngx-in-view.umd.js",
   "module": "module.js",
