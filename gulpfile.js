@@ -3,7 +3,6 @@ var path = require('path');
 var del = require('del')
 var ts = require('gulp-typescript');
 var lazypipe = require('lazypipe');
-var pug = require('pug');
 var inlineTemplates = require('gulp-inline-ng2-template');
 var cache = require('gulp-cached');
 var exec = require('child_process').exec;
@@ -16,26 +15,11 @@ var argv = require('yargs')
 
 var PATHS = {
   src: ['src/**/*.ts','!src/**/*.spec.ts'],
-  templates: 'src/**/*.pug',
   spec: 'src/**/*.ts',
   temp: 'temp/',
   tsInline: 'temp/inline/',
   dist: 'node_modules/ngx-in-view',
 };
-
-var inlineTemplatesTask = lazypipe()
-  .pipe(inlineTemplates, {
-    base: '/src',
-    useRelativePaths: true,
-    templateProcessor: function(filepath, ext, file, cb) {
-      const rendered = pug.render(file, {
-        doctype: 'html',
-        filename: filepath,
-      });
-      cb(null, rendered);
-    },
-    templateExtension: '.pug',
-  });
 
 gulp.task('clean', function() {
   return del([PATHS.dist, PATHS.temp]);
@@ -57,7 +41,6 @@ gulp.task('lint:ts', function lint_ts_impl() {
 
 gulp.task('ngc:templates', function() {
   return gulp.src(PATHS.src, {base: 'src'})
-    .pipe(inlineTemplatesTask())
     .pipe(gulp.dest(PATHS.tsInline));
 });
 
@@ -89,7 +72,7 @@ gulp.task('bundle', function __bundle(done) {
 gulp.task('build', gulp.series('clean', 'ngc', 'bundle'));
 
 gulp.task('build:watch', function() {
-  gulp.watch([ PATHS.src, PATHS.templates ], gulp.series('ngc', 'bundle'));
+  gulp.watch([ PATHS.src ], gulp.series('ngc', 'bundle'));
 });
 
 gulp.task('demo:clean', function() {
