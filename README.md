@@ -15,6 +15,20 @@ Install through `npm`:
 npm install --save ngx-in-view
 ```
 
+
+## API
+
+### Input
+
+* enter?: Function: Register a handler to the element for 'enter' events.
+* exit?: Function: Register a handler to the element for 'exit' events.
+* enterOnce?: Function: Register a handler to the element for 'enter' events. It will only be called once.
+* exitOnce?: Function: Register a handler to the element for 'exit' events. It will only be called once.
+
+### Export (inView)
+* is(): Check if element is in the viewport.
+
+
 ## Usage
 Once installed you need to import our main module into your application module by calling InViewModule.forRoot(). You should end up with code similar to this:
 
@@ -29,18 +43,6 @@ import {InViewModule} from 'ngx-in-view/ngx-in-view';
 })
 export class AppModule {}
 ```
-
-## API
-
-### Input
-
-* enter?: Function: Register a handler to the element for 'enter' events.
-* exit?: Function: Register a handler to the element for 'exit' events.
-* enterOnce?: Function: Register a handler to the element for 'enter' events. It will only be called once.
-* exitOnce?: Function: Register a handler to the element for 'exit' events. It will only be called once.
-
-### Export (inView)
-* is(): Check if element is in the viewport.
 
 
 ## Configuration
