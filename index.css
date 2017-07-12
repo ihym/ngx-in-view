@@ -13,6 +13,16 @@ main {
   flex: 1 0 auto;
 }
 
+#footer {
+  flex: none;
+  background: #101f32;
+  position: fixed;
+  bottom: 0;
+  opacity: 0.65;
+  color: darkgrey;
+  width: 100%;
+}
+
 .badge {
   opacity: 0.75;
   position: absolute;
