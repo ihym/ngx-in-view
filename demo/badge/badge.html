@@ -1,4 +1,4 @@
-<div #inv=inView class="badge" [class.inView]="inView" inView [enter]="enter" [exit]="exit"
+<div class="badge" [class.inView]="inView" inView (enter)="enter()" (exit)="exit()"
 	[ngStyle]="{
 		'top': yPos + '%',
 		'left': xPos + '%',

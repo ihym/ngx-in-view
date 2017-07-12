@@ -19,13 +19,13 @@ export class Badge implements BadgeComponent {
 
   inView = false;
 
-  enter = () => {
+  enter() {
     this.inView = true;
     this.width *= 1.5;
     this.height *= 1.5;
   }
 
-  exit = () => {
+  exit() {
     this.inView = false;
     this.width /= 1.5;
     this.height /= 1.5;

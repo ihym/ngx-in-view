@@ -1,7 +1,8 @@
-import { Directive, Input, ChangeDetectorRef, ElementRef } from '@angular/core';
+import { Directive, Output, EventEmitter, ChangeDetectorRef, ElementRef, Optional } from '@angular/core';
 import { uniqueId } from './util';
 import { InViewConfigurable } from './config/config';
 import { InViewConfig } from './config/config';
+import { Enter, Exit, EnterOnce, ExitOnce } from './output';
 
 var inView = require('in-view');
 
@@ -15,42 +16,53 @@ var inView = require('in-view');
 @InViewConfigurable()
 export class InView {
 
-  @Input() enter: Function;
-  @Input() exit: Function;
-  @Input() enterOnce: Function;
-  @Input() exitOnce: Function;
+  @Output('enter') onEnter = new EventEmitter<any>();
+  @Output('exit') onExit = new EventEmitter<any>();
+  @Output('enterOnce') onEnterOnce = new EventEmitter<any>();
+  @Output('exitOnce') onExitOnce = new EventEmitter<any>();
 
   private uid = uniqueId();
+  private hasEnterHandler;
+  private hasExitHandler;
+  private hasEnterOnceHandler;
+  private hasExitOnceHandler;
 
-  constructor(private config: InViewConfig,
-              private element: ElementRef,
-              private cd: ChangeDetectorRef) {
+  constructor(private config: InViewConfig, private element: ElementRef,
+              private cd: ChangeDetectorRef,
+              @Optional() enter: Enter,
+              @Optional() exit: Exit,
+              @Optional() enterOnce: EnterOnce,
+              @Optional() exitOnce: ExitOnce) {
+    this.hasEnterHandler = !!enter;
+    this.hasExitHandler = !!exit;
+    this.hasEnterOnceHandler = !!enterOnce;
+    this.hasExitOnceHandler = !!exitOnce;
     this.invOnConfigChanges();
   }
 
   ngAfterViewInit() {
     const inv = inView(`#${this.uid}`);
-    if (this.enter) {
-      inv.on('enter', (el) => {
-        this.enter(el);
+    if (this.hasEnterHandler) {
+      inv.on('enter', () => {
+        this.onEnter.emit();
         this.cd.detectChanges();
       });
     }
-    if (this.exit) {
-      inv.on('exit', (el) => {
-        this.exit(el);
+    if (this.hasExitHandler) {
+      inv.on('exit', () => {
+        this.onExit.emit();
         this.cd.detectChanges();
       });
     }
-    if (this.enterOnce) {
-      inv.once('enter', (el) => {
-        this.enterOnce(el);
+    if (this.hasEnterOnceHandler) {
+      inv.once('enter', () => {
+        this.onEnterOnce.emit();
         this.cd.detectChanges();
       });
     }
-    if (this.exitOnce) {
-      inv.once('exit', (el) => {
-        this.exitOnce(el);
+    if (this.hasExitOnceHandler) {
+      inv.once('exit', () => {
+        this.onExitOnce.emit();
         this.cd.detectChanges();
       });
     }
