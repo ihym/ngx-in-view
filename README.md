@@ -17,15 +17,14 @@ npm install --save ngx-in-view
 
 
 ## API
-
-### Input
-
+### [inView]
+#### Input
 * enter?: Function: Register a handler to the element for 'enter' events.
 * exit?: Function: Register a handler to the element for 'exit' events.
 * enterOnce?: Function: Register a handler to the element for 'enter' events. It will only be called once.
 * exitOnce?: Function: Register a handler to the element for 'exit' events. It will only be called once.
 
-### Export (inView)
+#### Export (inView)
 * is(): Check if element is in the viewport.
 
 
