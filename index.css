@@ -1,3 +1,8 @@
+html { 
+  background: url(img/bg.jpg) no-repeat center center fixed; 
+  background-size: cover;
+}
+
 app {
   display: flex;
   flex-direction: column;
@@ -12,12 +17,11 @@ main {
   opacity: 0.75;
   position: absolute;
   border-radius: 50%;
-  background: linear-gradient(rgba(0, 0, 255, 0.45), rgba(0, 0, 255, 0.45)), url(./img/angular.png);
-  background-size: contain;
+  background: linear-gradient(rgba(0, 0, 255, 0.50), rgba(0, 0, 255, 0.50));
 }
 
 .badge.inView {
-  background: linear-gradient(rgba(255, 0, 0, 0.45), rgba(255, 0, 0, 0.45)), url(./img/angular.png);
+  background: linear-gradient(rgba(255, 0, 0, 0.50), rgba(255, 0, 0, 0.50)), url(./img/angular.png);
   background-size: contain;
 }
 
@@ -26,7 +30,6 @@ main {
   padding: 2rem;
   z-index: 10000;
   border-radius: 0;
-  border: 2px solid red;
   background: #fff;
   left: 50%;
   top: 50%;
