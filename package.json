@@ -72,6 +72,8 @@
     "json-loader": "^0.5.3",
     "lazypipe": "^1.0.1",
     "markdown-loader": "^0.1.7",
+    "pug": "^2.0.0-beta6",
+    "pug-loader": "^2.3.0",
     "q": "^1.4.1",
     "raw-loader": "^0.5.1",
     "replace": "^0.3.0",

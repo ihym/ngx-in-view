@@ -3,6 +3,7 @@ var path = require('path');
 var del = require('del')
 var ts = require('gulp-typescript');
 var lazypipe = require('lazypipe');
+var pug = require('pug'); 
 var inlineTemplates = require('gulp-inline-ng2-template');
 var cache = require('gulp-cached');
 var exec = require('child_process').exec;
@@ -15,11 +16,26 @@ var argv = require('yargs')
 
 var PATHS = {
   src: ['src/**/*.ts','!src/**/*.spec.ts'],
+  templates: 'src/**/*.pug', 
   spec: 'src/**/*.ts',
   temp: 'temp/',
   tsInline: 'temp/inline/',
   dist: 'node_modules/ngx-in-view',
 };
+
+var inlineTemplatesTask = lazypipe()
+  .pipe(inlineTemplates, {
+    base: '/src',
+    useRelativePaths: true,
+    templateProcessor: function(filepath, ext, file, cb) {
+      const rendered = pug.render(file, {
+        doctype: 'html',
+        filename: filepath,
+      });
+      cb(null, rendered);
+    },
+    templateExtension: '.pug',
+  });
 
 gulp.task('clean', function() {
   return del([PATHS.dist, PATHS.temp]);
