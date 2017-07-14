@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var path = require('path');
-var del = require('del')
+var del = require('del');
 var ts = require('gulp-typescript');
 var lazypipe = require('lazypipe');
 var pug = require('pug'); 

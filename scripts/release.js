@@ -15,7 +15,7 @@ function requestReleaseType(current) {
       type: 'list',
       name: 'type',
       message: 'What type of release would you like?',
-      choices: ['patch', 'minor', 'major'].map(type => `${type} (${semver.inc( current, type )})`),
+      choices: ['patch', 'minor', 'major'].map((type) => `${type} (${semver.inc( current, type )})`),
       default: 0
     }
   ]).then(function( answers ) {

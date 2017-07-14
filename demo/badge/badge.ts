@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy, ViewChild } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 export interface BadgeComponent {
   xPos: number;
