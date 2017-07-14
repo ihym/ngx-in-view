@@ -1,7 +1,8 @@
-# ngx-in-view
+# ngx-in-view [![npm version](https://badge.fury.io/js/ngx-in-view.svg)](https://www.npmjs.com/package/ngx-in-view) [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 
 [![Build Status](https://travis-ci.org/ihym/ngx-in-view.svg?branch=master)](https://travis-ci.org/ihym/ngx-in-view)
-[![npm version](https://badge.fury.io/js/ngx-in-view.svg)](https://www.npmjs.com/package/ngx-in-view)
+[![Dependencies](https://david-dm.org/ihym/ngx-in-view.svg)](https://david-dm.org/ihym/ngx-in-view)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6ff9f19109dc4c9ba18eb8cd893d67d7)](https://www.codacy.com/app/ihym/ngx-in-view?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ihym/ngx-in-view&amp;utm_campaign=Badge_Grade)
 
 Angular 2+ wrapper for [in-view.js](https://github.com/camwiegert/in-view)
 
