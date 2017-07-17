@@ -1,34 +1,31 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, HostBinding, ChangeDetectionStrategy, ElementRef, Renderer } from '@angular/core';
 
 export interface BadgeComponent {
-  xPos: number;
-  yPos: number;
+  xPos: string;
+  yPos: string;
 }
 
 @Component({
   selector: 'badge',
   templateUrl: 'badge.html',
+  host: {
+    '[class.badge]': 'true',
+  },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Badge implements BadgeComponent {
 
-  @Input() xPos: number;
-  @Input() yPos: number;
-  @Input() width: number = 30;
-  @Input() height: number = 30;
+  @HostBinding('style.left') xPos: string;
+  @HostBinding('style.top') yPos: string;
 
-  inView = false;
+  constructor(private el: ElementRef, private renderer: Renderer) {}
 
   enter() {
-    this.inView = true;
-    this.width *= 1.5;
-    this.height *= 1.5;
+    this.renderer.setElementClass(this.el.nativeElement, 'inView', true);
   }
 
   exit() {
-    this.inView = false;
-    this.width /= 1.5;
-    this.height /= 1.5;
+    this.renderer.setElementClass(this.el.nativeElement, 'inView', false);
   }
 
 }

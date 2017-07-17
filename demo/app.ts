@@ -21,7 +21,7 @@ export class AppComp {
     this.getBadges();
   }
 
-  private loadComponent(xPos: number, yPos: number) {
+  private loadComponent(xPos: string, yPos: string) {
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(Badge);
     const viewContainerRef = this.badgeHost.viewContainerRef;
 
@@ -32,8 +32,8 @@ export class AppComp {
 
   private getBadges() {
     setTimeout(() => {
-      for (let i = 0; i < 100; i++) {
-        this.loadComponent(Math.random() * 100, Math.random() * 200);
+      for (let i = 0; i < 200; i++) {
+        this.loadComponent(Math.random() * 100 + '%', Math.random() * 400 + '%');
       }
     });
    }
