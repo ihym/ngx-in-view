@@ -85,5 +85,32 @@ export class AppComponent {
 }
 ```
 
+
+## Contribute
+### Build
+
+```bash
+npm run build
+```
+
+If you want to watch your source files for changes and build every time use:
+```bash
+npm start
+```
+
+**Note**: Generated output is placed into the `node_modules/ngx-card` folder.
+
+
+### Demo
+
+The best way to see your changes in action, is to use our demo page locally. Run:
+```bash
+npm run demo
+```
+which will create a development server accessible through `http:localhost:1111`.
+In conjunction with `npm start` in another command tab you have a fully working environment!
+
+All demo resources can be found in the `/demo` folder.
+
 ***
 MIT @ [Vasilis Diakomanolis](https://github.com/ihym)
